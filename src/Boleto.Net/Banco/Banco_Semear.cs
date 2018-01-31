@@ -79,7 +79,7 @@ namespace BoletoNet
 
             #region Campo 3
 
-            string Grupo3 = campoLivre.Substring(15, 9) + boleto.Cedente.ContaBancaria.DigitoConta;
+            string Grupo3 = campoLivre.Substring(15, 10);
             int D3 = Mod10(Grupo3);
 
             Grupo3 = string.Format("{0}.{1}{2} ", Grupo3.Substring(0, 5), Grupo3.Substring(5, 5), D3);
@@ -90,7 +90,7 @@ namespace BoletoNet
 
             string Grupo4 = string.Empty;
 
-            Grupo4 = string.Format("{0} ", boleto.CodigoBarra.DigitoVerificador);
+            Grupo4 = string.Format("{0} ", boleto.CodigoBarra.Codigo[4]);
 
             #endregion Campo 4
 
@@ -135,7 +135,7 @@ namespace BoletoNet
 
             if (boleto.Carteira == "02") // Com registro
             {
-                boleto.CodigoBarra.Codigo = string.Format("{0}{1}{2}{3}{4}0", Codigo.ToString(), boleto.Moeda,
+                boleto.CodigoBarra.Codigo = string.Format("{0}{1}{2}{3}{4}", Codigo.ToString(), boleto.Moeda,
                 FatorVencimento(boleto), valorBoleto, FormataCampoLivre(boleto));
             }
             else
@@ -143,10 +143,34 @@ namespace BoletoNet
                 throw new NotImplementedException("Carteira ainda não implementada.");
             }
 
-            _dacBoleto = Mod11(boleto.CodigoBarra.Codigo, 9);
+            _dacBoleto = CalcularDigitoVerificador(boleto.CodigoBarra.Codigo);
             boleto.CodigoBarra.Codigo = Strings.Left(boleto.CodigoBarra.Codigo, 4) + _dacBoleto + Strings.Right(boleto.CodigoBarra.Codigo, 39);
         }
 
+        public int CalcularDigitoVerificador(string codigoDeBarras)
+        {
+            var indicieDeMultiplicacao = 2;
+            var valorAcumulado = 0;
+
+            for (var i = codigoDeBarras.Length-1; i >= 0; i--)
+            {
+                valorAcumulado += Convert.ToInt32(codigoDeBarras[i].ToString()) * indicieDeMultiplicacao;
+
+                indicieDeMultiplicacao++;
+
+                if (indicieDeMultiplicacao > 9)
+                    indicieDeMultiplicacao = 2;
+            }
+
+            var resto = valorAcumulado % 11;
+
+            var resultado = 11 - resto;
+
+            if (resultado == 0 || resultado == 1 || resultado > 9)
+                resultado = 1;
+
+            return resultado;
+        }
 
         ///<summary>
         /// Campo Livre
@@ -163,7 +187,7 @@ namespace BoletoNet
             var nossoNumero = boleto.NossoNumero.Split('-')[0];
             var conta = boleto.Cedente.ContaBancaria.Conta.PadLeft(7, '0');
 
-            string FormataCampoLivre = string.Format("{0}{1}{2}{3}", agencia, carteira, nossoNumero, conta);
+            string FormataCampoLivre = string.Format("{0}{1}{2}{3}0", agencia, carteira, nossoNumero, conta);
 
             return FormataCampoLivre;
         }
