@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Biblioteca", "Biblioteca", "{75FC8289-5B1E-4684-8497-54494382FA55}"
 	ProjectSection(SolutionItems) = preProject
@@ -60,6 +60,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boleto.Net.Testes", "Boleto.Net.Testes\Boleto.Net.Testes.csproj", "{92951948-996F-4F22-AB35-74B06C45E1D4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Boleto.Net.MVC", "Boleto.Net.MVC\Boleto.Net.MVC.csproj", "{ED82A7C4-89F9-4481-ADE5-8B5F64DF9E5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Funções", "Funções", "{1753BD6F-42AB-471D-993F-19E67A2898AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acerto.Funcoes.Portal", "Acerto.Funcoes.Portal\Acerto.Funcoes.Portal.csproj", "{DB4400C7-DFA3-4164-801A-42030892652F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +125,18 @@ Global
 		{ED82A7C4-89F9-4481-ADE5-8B5F64DF9E5B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ED82A7C4-89F9-4481-ADE5-8B5F64DF9E5B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{ED82A7C4-89F9-4481-ADE5-8B5F64DF9E5B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Debug|.NET.Build.0 = Debug|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Release|.NET.ActiveCfg = Release|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Release|.NET.Build.0 = Release|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{DB4400C7-DFA3-4164-801A-42030892652F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +149,9 @@ Global
 		{3E75E02F-A49C-4C96-8A9E-8A405D8B6167} = {057F8124-1BE5-46CB-B2EF-106CD4325B93}
 		{92951948-996F-4F22-AB35-74B06C45E1D4} = {8C6CE2CA-61F8-489B-A803-27437835E300}
 		{ED82A7C4-89F9-4481-ADE5-8B5F64DF9E5B} = {717CBD6F-C429-445D-95B0-191CEAA7A088}
+		{DB4400C7-DFA3-4164-801A-42030892652F} = {1753BD6F-42AB-471D-993F-19E67A2898AE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ADAF7107-9AD6-4785-BA6E-F9DF704A3222}
 	EndGlobalSection
 EndGlobal
